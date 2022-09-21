@@ -1,1 +1,1 @@
-# fast-stable-diffusion
+# Precompiled xformer files
