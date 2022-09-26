@@ -16,7 +16,7 @@ parser.add_argument("--ckpt", type=str, default="models/ldm/stable-diffusion-v1/
 parser.add_argument("--precision", type=str, help="evaluate at this precision", choices=["full", "autocast"], default="autocast")
 parser.add_argument("--optimized", action='store_true', help="load the model onto the device piecemeal instead of all at once to reduce VRAM usage at the cost of performance")
 parser.add_argument("--gfpgan-dir", type=str, help="GFPGAN directory", default=('./src/gfpgan' if os.path.exists('./src/gfpgan') else './GFPGAN')) # i disagree with where you're putting it but since all guidefags are doing it this way, there you go
-parser.add_argument("--optimized-turbo", action='store_true',default=True, help="alternative optimization mode that does not save as much VRAM but runs siginificantly faster")
+parser.add_argument("--optimized-turbo", action='store_true',default=False, help="alternative optimization mode that does not save as much VRAM but runs siginificantly faster")
 parser.add_argument("--realesrgan-dir", type=str, help="RealESRGAN directory", default=('./src/realesrgan' if os.path.exists('./src/realesrgan') else './RealESRGAN'))
 parser.add_argument("--realesrgan-model", type=str, help="Upscaling model for RealESRGAN", default=('RealESRGAN_x2plus'))
 parser.add_argument("--no-verify-input", action='store_true', help="do not verify input to check if it's too long", default=False)
@@ -398,33 +398,6 @@ def load_embeddings(fp):
     if fp is not None and hasattr(model, "embedding_manager"):
         model.embedding_manager.load(fp.name)
 
-def image_grid(imgs, batch_size, force_n_rows=None, captions=None):
-    if force_n_rows is not None:
-        rows = force_n_rows
-    elif opt.n_rows > 0:
-        rows = opt.n_rows
-    elif opt.n_rows == 0:
-        rows = batch_size
-    else:
-        rows = math.sqrt(len(imgs))
-        rows = round(rows)
-
-    cols = math.ceil(len(imgs) / rows)
-
-    w, h = imgs[0].size
-    grid = Image.new('RGB', size=(cols * w, rows * h), color='black')
-
-    fnt = ImageFont.truetype("arial.ttf", 30)
-
-    for i, img in enumerate(imgs):
-        grid.paste(img, box=(i % cols * w, i // cols * h))
-        if captions:
-            d = ImageDraw.Draw( grid )
-            size = d.textbbox( (0,0), captions[i], font=fnt, stroke_width=2, align="center" )
-            d.multiline_text((i % cols * w + w/2, i // cols * h + h - size[3]), captions[i], font=fnt, fill=(255,0,255), stroke_width=2, stroke_fill=(0,0,0), anchor="mm", align="center")
-
-    return grid
-
 
 def seed_to_int(s):
     if type(s) is int:
@@ -707,9 +680,9 @@ def oxlamon_matrix(prompt, seed, batch_size):
 def process_images(
         outpath, func_init, func_sample, prompt, seed, sampler_name, skip_grid, skip_save, batch_size,
         n_iter, steps, cfg_scale, width, height, prompt_matrix, use_GFPGAN, use_RealESRGAN, realesrgan_model_name,
-        fp, ddim_eta=0.0, do_not_save_grid=False, normalize_prompt_weights=True, init_img=None, init_mask=None,
+        fp, ddim_eta=0.0, do_not_save_grid=True, normalize_prompt_weights=True, init_img=None, init_mask=None,
         keep_mask=False, mask_blur_strength=3, denoising_strength=0.75, resize_mode=None, uses_loopback=False,
-        uses_random_seed_loopback=False, sort_samples=True, write_info_files=True, jpg_sample=False,
+        uses_random_seed_loopback=False, sort_samples=False, write_info_files=False, jpg_sample=False,
         variant_amount=0.0, variant_seed=None):
     """this is the main loop that both txt2img and img2img use; it calls func_init once inside all the scopes and func_sample once per batch"""
     assert prompt is not None
@@ -908,27 +881,8 @@ skip_grid, sort_samples, sampler_name, ddim_eta, n_iter, batch_size, i, denoisin
 
                 output_images.append(image)
 
-        if (prompt_matrix or not skip_grid) and not do_not_save_grid:
-            if prompt_matrix:
-                grid = image_grid(output_images, batch_size, force_n_rows=1 << ((len(prompt_matrix_parts)-1)//2), captions=prompt_matrix_parts)
-            else:
-                grid = image_grid(output_images, batch_size)
-
-            if prompt_matrix and not prompt.startswith("@"):
-                try:
-                    grid = draw_prompt_matrix(grid, width, height, prompt_matrix_parts)
-                except:
-                    import traceback
-                    print("Error creating prompt_matrix text:", file=sys.stderr)
-                    print(traceback.format_exc(), file=sys.stderr)
-
-            output_images.insert(0, grid)
-            #else:
             #    grid = image_grid(output_images, batch_size)
 
-            grid_count = get_next_sequence_number(outpath, 'grid-')
-            grid_file = f"grid-{grid_count:05}-{seed}_{prompts[i].replace(' ', '_').translate({ord(x): '' for x in invalid_filename_chars})[:128]}.{grid_ext}"
-            grid.save(os.path.join(outpath, grid_file), grid_format, quality=grid_quality, lossless=grid_lossless, optimize=True)
 
         if opt.optimized:
             mem = torch.cuda.memory_allocated()/1e6
@@ -1284,12 +1238,6 @@ def img2img(prompt: str, image_editor_mode: str, init_info, mask_mode: str, mask
                     seed = seed_to_int(None)
                 denoising_strength = max(denoising_strength * 0.95, 0.1)
                 history.append(init_img)
-
-            if not skip_grid:
-                grid_count = get_next_sequence_number(outpath, 'grid-')
-                grid = image_grid(history, batch_size, force_n_rows=1)
-                grid_file = f"grid-{grid_count:05}-{seed}_{prompt.replace(' ', '_').translate({ord(x): '' for x in invalid_filename_chars})[:128]}.{grid_ext}"
-                grid.save(os.path.join(outpath, grid_file), grid_format, quality=grid_quality, lossless=grid_lossless, optimize=True)
 
 
             output_images = history
