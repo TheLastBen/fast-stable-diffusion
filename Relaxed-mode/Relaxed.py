@@ -1615,9 +1615,9 @@ class ServerLauncher(threading.Thread):
         asyncio.set_event_loop(loop)
         gradio_params = {
             'show_error': True, 
-            'server_name': '192.168.1.107',
-            'server_port' : 8081,
-            'share': opt.share
+            'server_name': '127.0.0.1',
+            'server_port' : 8080,
+            'share': True
         }
         if not opt.share:
             demo.queue(concurrency_count=1)
