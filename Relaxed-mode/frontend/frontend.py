@@ -26,7 +26,7 @@ def draw_gradio_ui(opt, img2img=lambda x: x, txt2img=lambda x: x, txt2img_defaul
                         alphas=gr.Textbox(label='Seed',interactive=True, visible=False, placeholder='')
                         txt2img_width = gr.Slider(minimum=512, maximum=2048, step=64, label="Width", value=512)
                         txt2img_height = gr.Slider(minimum=512, maximum=2048, step=64, label="Height", value=512)
-                        txt2img_cfg = gr.Slider(minimum=1.0, maximum=30.0, step=0.5, label='Classifier Free Guidance Scale', value=7)
+                        txt2img_cfg = gr.Slider(minimum=1.0, maximum=30.0, step=0.5, label='Classifier Free Guidance Scale', value=9)
                         txt2img_steps = gr.Slider(minimum=1, maximum=150, step=1, label="Sampling Steps", value=35)
                         txt2img_batch_count = gr.Slider(minimum=1, maximum=25, step=1, label='Number of Images', value=txt2img_defaults['n_iter'])
                         txt2img_batch_size = gr.Slider(minimum=1, maximum=7, step=1, label='Images in a Batch (memory-hungry)', value=txt2img_defaults['batch_size'], visible=False)
