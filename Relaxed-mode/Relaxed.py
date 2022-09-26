@@ -1616,7 +1616,7 @@ class ServerLauncher(threading.Thread):
         gradio_params = {
             'show_error': True, 
             'server_name': '127.0.0.1',
-            'server_port' : 8080,
+            'server_port' : 8090,
             'share': True
         }
         if not opt.share:
