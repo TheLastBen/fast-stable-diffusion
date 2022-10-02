@@ -1,4 +1,4 @@
-# fast-stable-diffusion colabs, +25% speed increase + memory efficient + DreamBooth
+# fast-stable-diffusion colabs, +25-50% speed increase + memory efficient + DreamBooth
 2 Colab adaptations for both hlky AUTOMATIC1111 Webui versions of stable diffusion implementing the optimization suggested by https://github.com/MatthieuTPHR : https://github.com/huggingface/diffusers/pull/532, using 
 the MemoryEfficientAttention implementation from xformers (cc. @fmassa, @danthe3rd, @blefaudeux) to both speedup the cross-attention speed and decrease its GPU memory requirements.
 
