@@ -6,7 +6,7 @@ import gradio as gr
 import os
 import random
 
-pipeline = StableDiffusionPipeline.from_pretrained("/content/gdrive/MyDrive/models/stable-diffusion-v1-4",torch_dtype=torch.float16).to("cuda")
+pipeline = StableDiffusionPipeline.from_pretrained("/content/gdrive/MyDrive/models/instance",torch_dtype=torch.float16).to("cuda")
 def dummy(images, **kwargs):
     return images, False
 pipeline.safety_checker = dummy
