@@ -3,8 +3,10 @@ from torch import autocast
 from diffusers import StableDiffusionPipeline
 from IPython.display import display
 import gradio as gr
+import os
+import random
 
-pipeline = StableDiffusionPipeline.from_pretrained("/content/gdrive/MyDrive/models/instance", torch_dtype=torch.float16).to("cuda")
+pipeline = StableDiffusionPipeline.from_pretrained("/content/gdrive/MyDrive/models/stable-diffusion-v1-4",torch_dtype=torch.float16).to("cuda")
 def dummy(images, **kwargs):
     return images, False
 pipeline.safety_checker = dummy
@@ -198,12 +200,25 @@ with gr.Blocks(css=css, analytics_enabled=False, title="Stable Diffusion") as de
                         #output_txt2img_copy_to_input_btn = gr.Button("Send to img2img")
                         #output_txt2img_copy_to_uncrop_btn = gr.Button("Send to Enhancements")
         def t2i(prompt, height, width, num_inference_steps, guidance_scale, batch_size):
+
+           path='/content/gdrive/MyDrive/Output_images/'
+           
+           
            with autocast("cuda"):
                images = pipeline([prompt]*batch_size, height=height, width=width, num_inference_steps=num_inference_steps, guidance_scale=guidance_scale).images                 
+               for k in images:
+                  name=(prompt[:50] + '..') if len(prompt) > 50 else prompt
+                  if not os.path.exists('/content/gdrive/MyDrive/Output_images/'):
+                    os.mkdir('/content/gdrive/MyDrive/Output_images/')
+                  if not os.path.exists('/content/gdrive/MyDrive/Output_images/' +name):
+                    os.mkdir('/content/gdrive/MyDrive/Output_images/' +name)
+                  r=random.randint(1,100000) 
+                  filename = os.path.join(path, name, name +'_'+str(r))
+                  k.save(f"{filename}.png")  
                return images
         txt2img_btn.click(t2i, [prompt, height, width, num_inference_steps, guidance_scale, batch_size], [output_txt2img_gallery])
              
-            
+ 
 
        # generator.change(checkbox2, generator, txt2img_seed_type)	                
        # seed_btn.click(test2, alphas, generator)
