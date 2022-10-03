@@ -1,8 +1,8 @@
 # fast-stable-diffusion colabs, +25-50% speed increase + memory efficient + DreamBooth
-2 Colab adaptations for both hlky AUTOMATIC1111 Webui versions of stable diffusion implementing the optimization suggested by https://github.com/MatthieuTPHR : https://github.com/huggingface/diffusers/pull/532, using 
-the MemoryEfficientAttention implementation from xformers (cc. @fmassa, @danthe3rd, @blefaudeux) to both speedup the cross-attention speed and decrease its GPU memory requirements.
+2 Colab adaptations for both the HLKY and AUTOMATIC1111 web-ui versions of Stable Diffusion, implementing the optimization suggested by [@MatthieuTPHR](https://github.com/MatthieuTPHR) in [this PR](https://github.com/huggingface/diffusers/pull/532), using 
+the MemoryEfficientAttention implementation from xformers (by @fmassa, @danthe3rd, @blefaudeux) to both speed up the cross-attention speed and decrease its GPU memory requirements.
 
-All you have to do is enter your huggingface token only once and you're all set, the colabs will install the repos and the models inside Gdrive, so the loading will be fast everytime you use it, enjoy !!
+All you have to do is enter your Huggingface token once and you're all set, the colabs will install the repos and the models inside Google Drive, so the loading will be fast everytime you use it. Enjoy!!
 
 hlky WEBUI
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast_stable_diffusion_hlky.ipynb)
