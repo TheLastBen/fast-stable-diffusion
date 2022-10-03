@@ -15,7 +15,7 @@ Minimalistic relaxed mode if you just want to have fun
 
 If you encounter any issue or you want to update to latest webui version, remove the folder "sd" or "stable-diffusion-webui" from your GDrive (and GDrive trash) and rerun the colab.
 
-# fast-dreambooth colab, +65% speed increase + less than 14GB VRAM.
+# fast-dreambooth colab, +65% speed increase + less than 14GB VRAM, CKPT output.
 Train your model using this easy simple and fast colab, all you have to do is enter you huggingface token once, and it will cache all the files in GDrive, including the trained model and you will be able to use it directly from the colab, make sure you use high quality reference pictures for the training.
 
 DreamBooth [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast-DreamBooth.ipynb)
