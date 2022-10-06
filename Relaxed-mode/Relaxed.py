@@ -1553,7 +1553,7 @@ demo = draw_gradio_ui(opt,
                         )
 
 demo.queue(concurrency_count=111500)
-demo.launch()
-#'server_name': '127.0.0.1',
-#'server_port' : 8090,
-
+if opt.share:
+  demo.launch(share=True)
+else:
+  demo.launch()
