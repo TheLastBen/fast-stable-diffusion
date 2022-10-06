@@ -1568,8 +1568,9 @@ class ServerLauncher(threading.Thread):
             'share': True
         }
         if not opt.share:
-            demo.queue(concurrency_count=1)
+            demo.queue(concurrency_count=111500)
         if opt.share and opt.share_password:
+	    demo.queue(concurrency_count=111500)
             gradio_params['auth'] = ('webui', opt.share_password)    
         self.demo.launch(**gradio_params)
 
