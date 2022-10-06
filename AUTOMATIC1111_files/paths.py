@@ -2,7 +2,7 @@ import argparse
 import os
 import sys
 
-script_path = '/content/gdrive/MyDrive/sd/stable-diffusion-webui'
+script_path = f'{os.getcwd()}-webui'
 models_path = os.path.join(script_path, "models")
 sys.path.insert(0, script_path)
 
