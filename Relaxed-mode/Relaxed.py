@@ -1552,63 +1552,8 @@ demo = draw_gradio_ui(opt,
                       run_RealESRGAN=run_RealESRGAN
                         )
 
-class ServerLauncher(threading.Thread):
-    def __init__(self, demo):
-        threading.Thread.__init__(self)
-        self.name = 'Gradio Server Thread'
-        self.demo = demo
-
-    def run(self):
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        gradio_params = {
-            'show_error': True, 
-            'server_name': '127.0.0.1',
-            'server_port' : 8090,
-            'share': True
-        }
-        if not opt.share:
-            demo.queue(concurrency_count=1)
-        if opt.share and opt.share_password:
-            gradio_params['auth'] = ('webui', opt.share_password)    
-        self.demo.launch(**gradio_params)
-
-    def stop(self):
-        self.demo.close() # this tends to hang
-
-def launch_server():
-    server_thread = ServerLauncher(demo)
-    server_thread.start()
-
-    try:
-        while server_thread.is_alive():
-            time.sleep(60)
-    except (KeyboardInterrupt, OSError) as e:
-        crash(e, 'Shutting down...')
-
-def run_headless():
-    with open(opt.cli, 'r', encoding='utf8') as f:
-        kwargs = yaml.safe_load(f)
-    target = kwargs.pop('target')
-    if target == 'txt2img':
-        target_func = txt2img
-    elif target == 'img2img':
-        target_func = img2img
-        raise NotImplementedError()
-    else:
-        raise ValueError(f'Unknown target: {target}')
-    prompts = kwargs.pop("prompt")
-    prompts = prompts if type(prompts) is list else [prompts]
-    for i, prompt_i in enumerate(prompts):
-        print(f"===== Prompt {i+1}/{len(prompts)}: {prompt_i} =====")
-        output_images, seed, info, stats = target_func(prompt=prompt_i, **kwargs)
-        print(f'Seed: {seed}')
-        print(info)
-        print(stats)
-        print()
-
-if __name__ == '__main__':
-    if opt.cli is None:
-        launch_server()
-    else:
-        run_headless()
+demo.queue(concurrency_count=111500)
+if opt.share:
+  demo.launch(share=True)
+else:
+  demo.launch()
