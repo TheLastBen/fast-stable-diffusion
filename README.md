@@ -26,4 +26,5 @@ Train your model using this easy simple and fast colab, all you have to do is en
 <p align="center"><a href="https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast-DreamBooth.ipynb"> 
 <img src='https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dreambooth/4.jpg'></a> </p>
 
+TODO : paperspace support
 
