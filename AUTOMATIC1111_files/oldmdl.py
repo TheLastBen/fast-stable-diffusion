@@ -6,7 +6,6 @@ def oldmdl(token):
 
     if token == "" and not os.path.exists('/content/gdrive/MyDrive/sd/stable-diffusion-webui/models/Stable-diffusion/model.ckpt'):
       token=input("Insert your huggingface token :")
-      %cd /content/
       clear_output()
       !git init
       !git lfs install --system --skip-repo
@@ -29,7 +28,6 @@ def oldmdl(token):
 
 
     elif not os.path.exists('/content/gdrive/MyDrive/sd/stable-diffusion-webui/models/Stable-diffusion/model.ckpt'):
-      %cd /content/
       clear_output()
       !git init
       !git lfs install --system --skip-repo
