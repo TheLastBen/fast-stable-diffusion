@@ -635,10 +635,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.original_config_file is None:
-        os.system(
-            "wget.download('https://raw.githubusercontent.com/CompVis/stable-diffusion/main/configs/stable-diffusion/v1-inference.yaml')"
-        )
-        args.original_config_file = "./v1-inference.yaml"
+      wget.download('https://raw.githubusercontent.com/CompVis/stable-diffusion/main/configs/stable-diffusion/v1-inference.yaml')
+      args.original_config_file = "./v1-inference.yaml"
 
     original_config = OmegaConf.load(args.original_config_file)
     checkpoint = torch.load(args.checkpoint_path)["state_dict"]
