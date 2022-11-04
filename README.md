@@ -9,7 +9,9 @@ Colab adaptations AUTOMATIC1111 Webui and Dreambooth, train your model using thi
 <img src='https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dreambooth/1.jpg'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast-DreamBooth.ipynb"><img src='https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dreambooth/4.jpg'></a>
 
- 
+Dreambooth paper : https://dreambooth.github.io/
+
+SD implementation by @XavierXiao : https://github.com/XavierXiao/Dreambooth-Stable-Diffusion
  
 ## Other Webuis
  
