@@ -1415,7 +1415,7 @@ if opt.defaults is not None and os.path.isfile(opt.defaults):
 else:
     user_defaults = {}
 
-# make sure these indicies line up at the top of txt2img()
+# make sure these indices line up at the top of txt2img()
 txt2img_toggles = [
     'Create prompt matrix (separate multiple prompts using |, and get all combinations of them)',
     'Normalize Prompt Weights (ensure sum of weights add up to 1.0)',
@@ -1454,7 +1454,7 @@ txt2img_toggle_defaults = [txt2img_toggles[i] for i in txt2img_defaults['toggles
 sample_img2img = "assets/stable-samples/img2img/sketch-mountains-input.jpg"
 sample_img2img = sample_img2img if os.path.exists(sample_img2img) else None
 
-# make sure these indicies line up at the top of img2img()
+# make sure these indices line up at the top of img2img()
 img2img_toggles = [
     'Create prompt matrix (separate multiple prompts using |, and get all combinations of them)',
     'Normalize Prompt Weights (ensure sum of weights add up to 1.0)',

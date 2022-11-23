@@ -1,0 +1,24 @@
+{
+  "_class_name": "StableDiffusionPipeline",
+  "_diffusers_version": "0.6.0",
+  "scheduler": [
+    "diffusers",
+    "PNDMScheduler"
+  ],
+  "text_encoder": [
+    "transformers",
+    "CLIPTextModel"
+  ],
+  "tokenizer": [
+    "transformers",
+    "CLIPTokenizer"
+  ],
+  "unet": [
+    "diffusers",
+    "UNet2DConditionModel"
+  ],
+  "vae": [
+    "diffusers",
+    "AutoencoderKL"
+  ]
+}
