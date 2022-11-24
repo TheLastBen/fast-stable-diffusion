@@ -112,9 +112,9 @@ class StableDiffusionModelHijack:
     def clear_comments(self):
         self.comments = []
 
-    def tokenize(self, text):
-        _, remade_batch_tokens, _, _, _, token_count = self.clip.process_text([text])
-        return remade_batch_tokens[0], token_count, get_target_prompt_token_count(token_count)
+    #def tokenize(self, text):
+        #_, remade_batch_tokens, _, _, _, token_count = self.clip.process_text([text])
+        #return remade_batch_tokens[0], token_count, get_target_prompt_token_count(token_count)
 
 
 class FrozenCLIPEmbedderWithCustomWords(torch.nn.Module):
