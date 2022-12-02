@@ -13,10 +13,6 @@ from .src.midas.transforms import Resize, NormalizeImage, PrepareForNet
 import torchvision.transforms.functional as TF
 
 
-def wget(url, outputdir):
-    print(subprocess.run(['wget', url, '-P', outputdir], stdout=subprocess.PIPE).stdout.decode('utf-8'))
-
-
 class DepthModel():
     def __init__(self, device):
         self.adabins_helper = None
@@ -28,15 +24,14 @@ class DepthModel():
     
     def load_adabins(self, models_path):
         if not os.path.exists(os.path.join(models_path,'AdaBins_nyu.pt')):
-            print("Downloading AdaBins_nyu.pt...")
-            os.makedirs(models_path, exist_ok=True)
-            wget("https://cloudflare-ipfs.com/ipfs/Qmd2mMnDLWePKmgfS8m6ntAg4nhV5VkUyAydYBp8cWWeB7/AdaBins_nyu.pt", models_path)
+            from basicsr.utils.download_util import load_file_from_url
+            load_file_from_url(r"https://cloudflare-ipfs.com/ipfs/Qmd2mMnDLWePKmgfS8m6ntAg4nhV5VkUyAydYBp8cWWeB7/AdaBins_nyu.pt", models_path)
         self.adabins_helper = InferenceHelper(models_path=models_path, dataset='nyu', device=self.device)
 
     def load_midas(self, models_path, half_precision=True):
         if not os.path.exists(os.path.join(models_path, 'dpt_large-midas-2f21e586.pt')):
-            print("Downloading dpt_large-midas-2f21e586.pt...")
-            wget("https://github.com/intel-isl/DPT/releases/download/1_0/dpt_large-midas-2f21e586.pt", models_path)
+            from basicsr.utils.download_util import load_file_from_url
+            load_file_from_url(r"https://github.com/intel-isl/DPT/releases/download/1_0/dpt_large-midas-2f21e586.pt", models_path)
 
         self.midas_model = DPTDepthModel(
             path=f"{models_path}/dpt_large-midas-2f21e586.pt",
@@ -132,7 +127,7 @@ class DepthModel():
 
             # blend between MiDaS and AdaBins predictions
             if use_adabins:
-                depth_map = midas_depth*anim_args.midas_weight + adabins_depth*(1.0-anim_args.midas_weight)
+                depth_map = torch.tensor(midas_depth)*anim_args.midas_weight + adabins_depth*(1.0-anim_args.midas_weight)
             else:
                 depth_map = midas_depth
 
