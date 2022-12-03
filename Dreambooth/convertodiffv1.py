@@ -1024,7 +1024,7 @@ def save_diffusers_checkpoint(v2, output_dir, text_encoder, unet, vae=None):
     beta_end=0.012,
     beta_schedule="scaled_linear",
     beta_start=0.00085,
-    num_train_timesteps: 1000,
+    num_train_timesteps=1000,
     set_alpha_to_one=False,
     skip_prk_steps=True,
   )     
