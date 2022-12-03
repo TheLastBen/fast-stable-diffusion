@@ -6,6 +6,7 @@ from transformers import CLIPTextModel, CLIPTokenizer, CLIPTextConfig
 from diffusers import AutoencoderKL, DDIMScheduler, StableDiffusionPipeline, UNet2DConditionModel
 
 
+
 # DiffUsers版StableDiffusionのモデルパラメータ
 NUM_TRAIN_TIMESTEPS = 1000
 BETA_START = 0.00085
@@ -1015,15 +1016,23 @@ def save_stable_diffusion_checkpoint(v2, output_file, text_encoder, unet, ckpt_p
   return key_count
 
 
-def save_diffusers_checkpoint(v2, output_dir, text_encoder, unet, pretrained_model_name_or_path, vae=None):
+def save_diffusers_checkpoint(v2, output_dir, text_encoder, unet, vae=None):
   if vae is None:
     vae = AutoencoderKL.from_pretrained(pretrained_model_name_or_path, subfolder="vae")
+  
+  scheduler = PNDMScheduler(
+    beta_start=0.00085,
+    beta_end=0.012,
+    beta_schedule="scaled_linear",
+    clip_sample=False,
+    set_alpha_to_one=False,
+  )     
   pipeline = StableDiffusionPipeline(
       unet=unet,
       text_encoder=text_encoder,
       vae=vae,
-      scheduler=DDIMScheduler.from_pretrained(pretrained_model_name_or_path, subfolder="scheduler"),
-      tokenizer=CLIPTokenizer.from_pretrained(pretrained_model_name_or_path, subfolder="tokenizer"),
+      scheduler=scheduler,
+      tokenizer=CLIPTokenizer.from_pretrained("/content/refmdl", subfolder="tokenizer"),
   )
   pipeline.save_pretrained(output_dir)
 
@@ -1044,8 +1053,8 @@ def convert(args):
   is_load_ckpt = os.path.isfile(args.model_to_load)
   is_save_ckpt = len(os.path.splitext(args.model_to_save)[1]) > 0
 
-  assert not is_load_ckpt or args.v1 != args.v2, f"v1 or v2 is required to load checkpoint / checkpointの読み込みにはv1/v2指定が必要です"
-  assert is_save_ckpt or args.reference_model is not None, f"reference model is required to save as Diffusers / Diffusers形式での保存には参照モデルが必要です"
+  assert not is_load_ckpt or args.v1 != args.v2, f"v1 or v2 is required to load checkpoint"
+  assert is_save_ckpt is not None, f"reference model is required to save as Diffusers"
 
   # モデルを読み込む
   msg = "checkpoint" if is_load_ckpt else ("Diffusers" + (" as fp16" if args.fp16 else ""))
@@ -1076,8 +1085,8 @@ def convert(args):
     key_count = save_stable_diffusion_checkpoint(v2_model, args.model_to_save, text_encoder, unet,
                                                             original_model, args.epoch, args.global_step, save_dtype, vae)
     
-  else:    
-    save_diffusers_checkpoint(v2_model, args.model_to_save, text_encoder, unet, args.reference_model, vae)
+  else:
+    save_diffusers_checkpoint(v2_model, args.model_to_save, text_encoder, unet, vae)
     
 
 
@@ -1095,8 +1104,6 @@ if __name__ == '__main__':
   parser.add_argument("--epoch", type=int, default=0, help='epoch to write to checkpoint / checkpointに記録するepoch数の値')
   parser.add_argument("--global_step", type=int, default=0,
                       help='global_step to write to checkpoint / checkpointに記録するglobal_stepの値')
-  parser.add_argument("--reference_model", type=str, default=None,
-                      help="reference model for schduler/tokenizer, required in saving Diffusers, copy schduler/tokenizer from this / scheduler/tokenizerのコピー元のDiffusersモデル、Diffusers形式で保存するときに必要")
 
   parser.add_argument("model_to_load", type=str, default=None,
                       help="model to load: checkpoint file or Diffusers model's directory / 読み込むモデル、checkpointかDiffusers形式モデルのディレクトリ")
