@@ -1,10 +1,6 @@
+print("[1;32mConverting to CKPT ...")
 import argparse
 import os
-import torch
-from diffusers import StableDiffusionPipeline
-
-# v1: split from train_db_fixed.py.
-
 import torch
 from transformers import CLIPTextModel, CLIPTokenizer, CLIPTextConfig
 from diffusers import AutoencoderKL, DDIMScheduler, StableDiffusionPipeline, UNet2DConditionModel
@@ -527,7 +523,7 @@ def create_vae_diffusers_config():
   block_out_channels = [VAE_PARAMS_CH * mult for mult in VAE_PARAMS_CH_MULT]
   down_block_types = ["DownEncoderBlock2D"] * len(block_out_channels)
   up_block_types = ["UpDecoderBlock2D"] * len(block_out_channels)
-
+  
   config = dict(
       sample_size=VAE_PARAMS_RESOLUTION,
       in_channels=VAE_PARAMS_IN_CHANNELS,
@@ -796,7 +792,7 @@ def convert_vae_state_dict(vae_state_dict):
       mapping[k] = v
   new_state_dict = {v: vae_state_dict[k] for k, v in mapping.items()}
   weights_to_convert = ["q", "k", "v", "proj_out"]
-  print("[1;32mConverting to CKPT ...")
+
   for k, v in new_state_dict.items():
     for weight_name in weights_to_convert:
       if f"mid.attn_1.{weight_name}.weight" in k:
@@ -815,10 +811,9 @@ def load_checkpoint_with_text_encoder_conversion(ckpt_path):
       ('cond_stage_model.transformer.encoder.', 'cond_stage_model.transformer.text_model.encoder.'),
       ('cond_stage_model.transformer.final_layer_norm.', 'cond_stage_model.transformer.text_model.final_layer_norm.')
   ]
-
+  
   checkpoint = torch.load(ckpt_path, map_location="cpu")
   state_dict = checkpoint["state_dict"]
-
   key_reps = []
   for rep_from, rep_to in TEXT_ENCODER_KEY_REPLACEMENTS:
     for key in state_dict.keys():
@@ -835,6 +830,7 @@ def load_checkpoint_with_text_encoder_conversion(ckpt_path):
 
 # TODO dtype指定の動作が怪しいので確認する text_encoderを指定形式で作れるか未確認
 def load_models_from_stable_diffusion_checkpoint(v2, ckpt_path, dtype=None):
+  
   checkpoint = load_checkpoint_with_text_encoder_conversion(ckpt_path)
   state_dict = checkpoint["state_dict"]
   if dtype is not None:
