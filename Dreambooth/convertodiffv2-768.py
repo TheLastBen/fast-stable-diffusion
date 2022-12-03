@@ -1,4 +1,4 @@
-print("[1;32mConverting to CKPT ...")
+print("[1;32mConverting to Diffusers ...")
 import argparse
 import os
 import torch
