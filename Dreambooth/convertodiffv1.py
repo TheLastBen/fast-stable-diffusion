@@ -3,7 +3,7 @@ import argparse
 import os
 import torch
 from transformers import CLIPTextModel, CLIPTokenizer, CLIPTextConfig
-from diffusers import AutoencoderKL, DDIMScheduler, StableDiffusionPipeline, UNet2DConditionModel
+from diffusers import AutoencoderKL, PNDMScheduler, StableDiffusionPipeline, UNet2DConditionModel
 
 
 
