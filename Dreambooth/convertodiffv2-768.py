@@ -812,7 +812,7 @@ def load_checkpoint_with_text_encoder_conversion(ckpt_path):
       ('cond_stage_model.transformer.final_layer_norm.', 'cond_stage_model.transformer.text_model.final_layer_norm.')
   ]
   
-  checkpoint = torch.load(ckpt_path, map_location="cpu")
+  checkpoint = torch.load(ckpt_path, map_location="cuda")
   state_dict = checkpoint["state_dict"]
   key_reps = []
   for rep_from, rep_to in TEXT_ENCODER_KEY_REPLACEMENTS:
