@@ -1,6 +1,7 @@
 import math, os, subprocess
 import cv2
 import numpy as np
+import hashlib
 import torch
 import torchvision.transforms as T
 
