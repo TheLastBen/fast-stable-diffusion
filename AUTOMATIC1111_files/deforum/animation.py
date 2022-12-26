@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 from functools import reduce
 import math
-import py3d_tools as p3d
+from .src import py3d_tools as p3d
 import torch
 from einops import rearrange
 import re
