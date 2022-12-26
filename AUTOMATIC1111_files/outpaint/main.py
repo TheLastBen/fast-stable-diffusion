@@ -16,7 +16,6 @@ key_characters = (string.ascii_letters + string.digits)
 def random_string(length=20):
     return ''.join([rd.choice(key_characters) for _ in range(length)])
 
-os.chdir("/content/gdrive/MyDrive/sd/stablediffusion")
 key = random_string()
 
 
@@ -24,7 +23,7 @@ def add_tab():
     with gr.Blocks(analytics_enabled=False) as ui:
         #refresh = gr.Button(value="refresh", variant="primary")
         canvas = gr.HTML(
-            f"<iframe id=\"openoutpaint-iframe\" class=\"border-2 border-gray-200\" src=\"file/{scripts.basedir()}/{usefulDirs[0]}/{usefulDirs[1]}/app/index.html?noprompt\"></iframe>")
+            f"<iframe id=\"openoutpaint-iframe\" class=\"border-2 border-gray-200\" src=\"{scripts.basedir()}/{usefulDirs[0]}/{usefulDirs[1]}/app/index.html?noprompt\"></iframe>")
         keyinput = gr.HTML(
             f"<input id=\"openoutpaint-key\" type=\"hidden\" value=\"{key}\">")
         # refresh.click(
