@@ -16,7 +16,7 @@ key_characters = (string.ascii_letters + string.digits)
 def random_string(length=20):
     return ''.join([rd.choice(key_characters) for _ in range(length)])
 
-
+os.chdir("/content/gdrive/MyDrive/sd/stablediffusion")
 key = random_string()
 
 
