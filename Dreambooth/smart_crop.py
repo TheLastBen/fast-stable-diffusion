@@ -204,13 +204,12 @@ def crop_image(im, size):
       self.corner_points_weight = corner_points_weight
       self.entropy_points_weight = entropy_points_weight
       self.face_points_weight = face_points_weight
-      self.destop_view_image = False
 
   settings = Settings(
       crop_width = size,
       crop_height = size,
-      face_points_weight = 0.5,
-      entropy_points_weight = 0.5,
+      face_points_weight = 0.9,
+      entropy_points_weight = 0.15,
       corner_points_weight = 0.5,
   )        
 
