@@ -814,7 +814,7 @@ def load_checkpoint_with_text_encoder_conversion(ckpt_path):
   ]
   
   checkpoint = torch.load(ckpt_path, map_location="cuda")
-  state_dict = checkpoint["state_dict"]
+  state_dict = checkpoint["state_dict"] if "state_dict" in checkpoint else checkpoint
   key_reps = []
   for rep_from, rep_to in TEXT_ENCODER_KEY_REPLACEMENTS:
     for key in state_dict.keys():
@@ -833,7 +833,7 @@ def load_checkpoint_with_text_encoder_conversion(ckpt_path):
 def load_models_from_stable_diffusion_checkpoint(v2, ckpt_path, dtype=None):
   
   checkpoint = load_checkpoint_with_text_encoder_conversion(ckpt_path)
-  state_dict = checkpoint["state_dict"]
+  state_dict = checkpoint["state_dict"] if "state_dict" in checkpoint else checkpoint
   if dtype is not None:
     for k, v in state_dict.items():
       if type(v) is torch.Tensor:
