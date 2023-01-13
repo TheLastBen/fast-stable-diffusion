@@ -1,0 +1,4 @@
+https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dependencies/git-lfs_2.3.4-1_amd64.deb
+https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dependencies/p7zip_16.02%2Bdfsg-7build1_amd64.deb
+https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dependencies/p7zip-full_16.02%2Bdfsg-7build1_amd64.deb
+https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dependencies/rename_0.20-7_all.deb
