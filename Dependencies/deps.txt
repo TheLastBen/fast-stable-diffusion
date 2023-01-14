@@ -1,3 +1,4 @@
-https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dependencies/deps.1
-https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dependencies/deps.2
-https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dependencies/deps.3
+https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dependencies/Dpnds.1
+https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dependencies/Dpnds.2
+https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dependencies/Dpnds.3
+https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dependencies/Dpnds.4
