@@ -1359,11 +1359,7 @@ class Blocks(BlockContext):
                 )
         else:
             if not self.share:
-              print(
-                  strings.en["RUNNING_LOCALLY_SEPARATED"].format(
-                      self.protocol, self.server_name, self.server_port
-                  )
-              )   
+              print(f'Running on local URL: https://{self.server_name}') 
 
         if self.share:
             if self.is_space:
