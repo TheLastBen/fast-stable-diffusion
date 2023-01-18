@@ -1,2 +1,2 @@
 https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dependencies/A1111_dep.tar.zst
-https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dependencies/zstd_1.4.4%2Bdfsg-3ubuntu0.1_amd64.deb
+https://huggingface.co/TheLastBen/dependencies/resolve/main/A1111_dep.tar.zst
