@@ -1,2 +1,0 @@
-*.zst filter=lfs diff=lfs merge=lfs -text
-Dependencies/db_deps.tar.zst filter=lfs diff=lfs merge=lfs -text
