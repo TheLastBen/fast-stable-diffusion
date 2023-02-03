@@ -1,4 +1,3 @@
-print("[1;32mConverting to Diffusers ...")
 import argparse
 import os
 import torch
@@ -1064,7 +1063,7 @@ def save_diffusers_checkpoint(v2, output_dir, text_encoder, unet, vae=None):
 
 
 def convert(args):
-  # 引数を確認する
+  print("[1;32mConverting to Diffusers ...")
   load_dtype = torch.float16 if args.fp16 else None
 
   save_dtype = None
