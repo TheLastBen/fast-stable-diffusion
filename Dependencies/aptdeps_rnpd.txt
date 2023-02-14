@@ -1,1 +1,2 @@
 https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dependencies/apt-utils_2.0.9_amd64.deb
+https://huggingface.co/TheLastBen/dependencies/resolve/main/rnpd.tar.zst
