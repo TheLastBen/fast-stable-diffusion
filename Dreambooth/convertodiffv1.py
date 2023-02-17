@@ -2,7 +2,7 @@ import argparse
 import os
 import torch
 from transformers import CLIPTextModel, CLIPTokenizer, CLIPTextConfig
-from diffusers import AutoencoderKL, PNDMScheduler, StableDiffusionPipeline, UNet2DConditionModel
+from diffusers import AutoencoderKL, DDIMScheduler, StableDiffusionPipeline, UNet2DConditionModel
 
 
 
@@ -1047,7 +1047,7 @@ def save_diffusers_checkpoint(v2, output_dir, text_encoder, unet, vae=None):
       unet=unet,
       text_encoder=text_encoder,
       vae=vae,
-      scheduler = DDIMScheduler.from_pretrained("runwayml/stable-diffusion-v1-5", subfolder="scheduler")
+      scheduler = DDIMScheduler.from_pretrained("runwayml/stable-diffusion-v1-5", subfolder="scheduler"),
       tokenizer=CLIPTokenizer.from_pretrained("refmdl", subfolder="tokenizer"),
   )
   pipeline.save_pretrained(output_dir)
