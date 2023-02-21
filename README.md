@@ -12,6 +12,7 @@ AUTOMATIC1111 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
+
 [Step by Step guide](https://github.com/Excalibro1/fast-stable-diffusionwik/wiki/fast-stable-diffusion-wiki) by Excalibro1
 
 Dreambooth paper : https://dreambooth.github.io/
