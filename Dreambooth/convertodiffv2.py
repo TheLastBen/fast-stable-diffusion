@@ -1,4 +1,3 @@
-print("[1;32mConverting to Diffusers ...")
 import argparse
 import os
 import torch
@@ -14,7 +13,7 @@ BETA_END = 0.0120
 UNET_PARAMS_MODEL_CHANNELS = 320
 UNET_PARAMS_CHANNEL_MULT = [1, 2, 4, 4]
 UNET_PARAMS_ATTENTION_RESOLUTIONS = [4, 2, 1]
-UNET_PARAMS_IMAGE_SIZE = 32  # unused
+UNET_PARAMS_IMAGE_SIZE = 64
 UNET_PARAMS_IN_CHANNELS = 4
 UNET_PARAMS_OUT_CHANNELS = 4
 UNET_PARAMS_NUM_RES_BLOCKS = 2
@@ -22,7 +21,7 @@ UNET_PARAMS_CONTEXT_DIM = 768
 UNET_PARAMS_NUM_HEADS = 8
 
 VAE_PARAMS_Z_CHANNELS = 4
-VAE_PARAMS_RESOLUTION = 256
+VAE_PARAMS_RESOLUTION = 768
 VAE_PARAMS_IN_CHANNELS = 3
 VAE_PARAMS_OUT_CH = 3
 VAE_PARAMS_CH = 128
@@ -1030,7 +1029,7 @@ def save_diffusers_checkpoint(v2, output_dir, text_encoder, unet, pretrained_mod
 
 
 def convert(args):
-  # 引数を確認する
+  print("[1;32mConverting to Diffusers ...")
   load_dtype = torch.float16 if args.fp16 else None
 
   save_dtype = None

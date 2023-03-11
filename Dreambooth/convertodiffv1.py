@@ -1,9 +1,8 @@
-print("[1;32mConverting to Diffusers ...")
 import argparse
 import os
 import torch
 from transformers import CLIPTextModel, CLIPTokenizer, CLIPTextConfig
-from diffusers import AutoencoderKL, PNDMScheduler, StableDiffusionPipeline, UNet2DConditionModel
+from diffusers import AutoencoderKL, DDIMScheduler, StableDiffusionPipeline, UNet2DConditionModel
 
 
 
@@ -15,7 +14,7 @@ BETA_END = 0.0120
 UNET_PARAMS_MODEL_CHANNELS = 320
 UNET_PARAMS_CHANNEL_MULT = [1, 2, 4, 4]
 UNET_PARAMS_ATTENTION_RESOLUTIONS = [4, 2, 1]
-UNET_PARAMS_IMAGE_SIZE = 32  # unused
+UNET_PARAMS_IMAGE_SIZE = 64
 UNET_PARAMS_IN_CHANNELS = 4
 UNET_PARAMS_OUT_CHANNELS = 4
 UNET_PARAMS_NUM_RES_BLOCKS = 2
@@ -23,7 +22,7 @@ UNET_PARAMS_CONTEXT_DIM = 768
 UNET_PARAMS_NUM_HEADS = 8
 
 VAE_PARAMS_Z_CHANNELS = 4
-VAE_PARAMS_RESOLUTION = 256
+VAE_PARAMS_RESOLUTION = 512
 VAE_PARAMS_IN_CHANNELS = 3
 VAE_PARAMS_OUT_CH = 3
 VAE_PARAMS_CH = 128
@@ -883,7 +882,31 @@ def load_models_from_stable_diffusion_checkpoint(v2, ckpt_path, dtype=None):
     info = text_model.load_state_dict(converted_text_encoder_checkpoint)
   else:
     converted_text_encoder_checkpoint = convert_ldm_clip_checkpoint_v1(state_dict)
-    text_model = CLIPTextModel.from_pretrained("openai/clip-vit-large-patch14")
+    cfg = CLIPTextConfig(
+        vocab_size=49408,
+        hidden_size=768,
+        intermediate_size=3072,
+        num_hidden_layers=12,
+        num_attention_heads=12,
+        max_position_embeddings=77,
+        hidden_act="quick_gelu",
+        layer_norm_eps=1e-05,
+        dropout=0.0,
+        attention_dropout=0.0,
+        initializer_range=0.02,
+        initializer_factor=1.0,
+        pad_token_id=1,
+        bos_token_id=0,
+        eos_token_id=2,
+        model_type="clip_text_model",
+        projection_dim=768,
+        torch_dtype="float32",
+        transformers_version="4.16.0.dev0",
+    )
+
+    
+    text_model = CLIPTextModel._from_config(cfg)
+    #text_model = CLIPTextModel.from_pretrained("openai/clip-vit-large-patch14")
     info = text_model.load_state_dict(converted_text_encoder_checkpoint)
 
 
@@ -1020,27 +1043,19 @@ def save_diffusers_checkpoint(v2, output_dir, text_encoder, unet, vae=None):
   if vae is None:
     vae = AutoencoderKL.from_pretrained(pretrained_model_name_or_path, subfolder="vae")
   
-  scheduler = PNDMScheduler(
-    beta_end=0.012,
-    beta_schedule="scaled_linear",
-    beta_start=0.00085,
-    num_train_timesteps=1000,
-    set_alpha_to_one=False,
-    skip_prk_steps=True,
-  )     
   pipeline = StableDiffusionPipeline(
       unet=unet,
       text_encoder=text_encoder,
       vae=vae,
-      scheduler=scheduler,
-      tokenizer=CLIPTokenizer.from_pretrained("/content/refmdl", subfolder="tokenizer"),
+      scheduler = DDIMScheduler.from_pretrained("runwayml/stable-diffusion-v1-5", subfolder="scheduler"),
+      tokenizer=CLIPTokenizer.from_pretrained("refmdl", subfolder="tokenizer"),
   )
   pipeline.save_pretrained(output_dir)
 
 
 
 def convert(args):
-  # 引数を確認する
+  print("[1;32mConverting to Diffusers ...")
   load_dtype = torch.float16 if args.fp16 else None
 
   save_dtype = None
