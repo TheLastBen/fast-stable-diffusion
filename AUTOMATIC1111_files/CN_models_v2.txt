@@ -1,0 +1,5 @@
+https://huggingface.co/thibaud/controlnet-sd21/resolve/main/canny-sd21-safe.safetensors
+https://huggingface.co/thibaud/controlnet-sd21/resolve/main/depth-sd21-safe.safetensors
+https://huggingface.co/thibaud/controlnet-sd21/resolve/main/hed-sd21-safe.safetensors
+https://huggingface.co/thibaud/controlnet-sd21/resolve/main/openpose-sd21-safe.safetensors
+https://huggingface.co/thibaud/controlnet-sd21/resolve/main/scribble-sd21-safe.safetensors
