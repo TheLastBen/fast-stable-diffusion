@@ -1,0 +1,1 @@
+https://huggingface.co/TheLastBen/dependencies/resolve/main/gcolabdeps.tar.zst
