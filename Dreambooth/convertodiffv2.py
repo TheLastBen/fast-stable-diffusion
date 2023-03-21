@@ -1023,6 +1023,8 @@ def save_diffusers_checkpoint(v2, output_dir, text_encoder, unet, pretrained_mod
       vae=vae,
       scheduler=DDIMScheduler.from_pretrained(pretrained_model_name_or_path, subfolder="scheduler"),
       tokenizer=CLIPTokenizer.from_pretrained(pretrained_model_name_or_path, subfolder="tokenizer"),
+      safety_checker=None,
+      feature_extractor=None,
   )
   pipeline.save_pretrained(output_dir)
 
