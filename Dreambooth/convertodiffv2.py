@@ -826,7 +826,7 @@ def load_checkpoint_with_text_encoder_conversion(ckpt_path):
       state_dict = checkpoint
   else:
       checkpoint = torch.load(ckpt_path, map_location="cuda")
-      checkpoint = checkpoint["state_dict"]
+      state_dict = checkpoint["state_dict"]
 
   #while "state_dict" in checkpoint:
   #    checkpoint = checkpoint["state_dict"]
