@@ -4,8 +4,6 @@ import sys
 from modules.paths_internal import models_path, script_path, data_path, extensions_dir, extensions_builtin_dir
 import modules.safe
 
-script_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-
 # Parse the --data-dir flag first so we can use it as a base for our other argument default values
 
 
