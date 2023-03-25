@@ -4,9 +4,6 @@ import sys
 from modules.paths_internal import models_path, script_path, data_path, extensions_dir, extensions_builtin_dir
 import modules.safe
 
-# Parse the --data-dir flag first so we can use it as a base for our other argument default values
-
-
 # data_path = cmd_opts_pre.data
 sys.path.insert(0, script_path)
 
