@@ -11,7 +11,7 @@ from subprocess import call
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--MODEL_PATH", type=str)
-parser.add_argument("--safetensors", action='store_true')
+parser.add_argument("--from_safetensors", action='store_true')
 args = parser.parse_args()
 
 wget.download("https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dreambooth/ldm.zip")
@@ -151,11 +151,11 @@ def detect_version(sd):
 
     else:
       sys.stdout = sys.__stdout__
-      v1=print("V1.5") 
+      v1=print("1.5") 
       return v1
 
 
-if args.safetensors:
+if args.from_safetensors:
 
     checkpoint = {}
     with safe_open(args.MODEL_PATH, framework="pt", device="cuda") as f:
