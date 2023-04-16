@@ -164,7 +164,7 @@ if args.from_safetensors:
     state_dict = checkpoint
 else:
     checkpoint = torch.load(args.MODEL_PATH, map_location="cuda")
-    state_dict = checkpoint["state_dict"]
+    state_dict = checkpoint["state_dict"] if "state_dict" in checkpoint else checkpoint
 
 detect_version(state_dict)
 
