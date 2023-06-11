@@ -1,5 +1,5 @@
 https://huggingface.co/thibaud/controlnet-sd21/resolve/main/control_v11p_sd21_canny.safetensors
 https://huggingface.co/thibaud/controlnet-sd21/resolve/main/control_v11p_sd21_depth.safetensors
 https://huggingface.co/thibaud/controlnet-sd21/resolve/main/control_v11p_sd21_hed.safetensors
-https://huggingface.co/thibaud/controlnet-sd21/resolve/main/control_v11p_sd21_openpose.safetensors
+https://huggingface.co/thibaud/controlnet-sd21/resolve/main/control_v11p_sd21_openposev2.safetensors
 https://huggingface.co/thibaud/controlnet-sd21/resolve/main/control_v11p_sd21_scribble.safetensors
