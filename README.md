@@ -1,4 +1,11 @@
-# fast-stable-diffusion Notebooks, AUTOMATIC1111 + DreamBooth
+# slow-stable-diffusion Notebook, AUTOMATIC1111
+
+This fork provides rudimentary version control on top of the excellent fast-stable-diffusion AUTOMATIC1111 notebook linked below. At this time I'm not making any changes to the dreambooth notebook, so version control is restricted to AUTOMATIC1111.
+
+This is a convenience fork that aims to provide some handy-dandy release tags that correspond to AUTOMATIC1111 releases and their corresponding known-working dependency definitions from fast-stable-diffusion, as well as some rudimentary rollback/forward capability for the AUTOMATIC1111 repo within the notebook. 
+
+
+## fast-stable-diffusion Notebooks, AUTOMATIC1111 + DreamBooth
 Runpod & Paperspace & Colab pro adaptations AUTOMATIC1111 Webui and Dreambooth.
  
 <center><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
