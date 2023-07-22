@@ -1,0 +1,36 @@
+diff --git a/Makefile.am b/Makefile.am
+index f18bf4f..10cc9d6 100755
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -102,6 +102,7 @@ if HAVE_OBJCOPY_WEAKEN
+ WEAKEN = $(OBJCOPY) -W malloc -W free -W realloc -W calloc -W cfree \
+          -W memalign -W posix_memalign -W valloc -W pvalloc \
+          -W malloc_stats -W mallopt -W mallinfo \
++         -W aligned_alloc \
+          -W _Znwm -W _ZnwmRKSt9nothrow_t -W _Znam -W _ZnamRKSt9nothrow_t \
+          -W _ZdlPv -W _ZdaPv \
+          -W __Znwm -W __ZnwmRKSt9nothrow_t -W __Znam -W __ZnamRKSt9nothrow_t \
+diff --git a/src/libc_override_gcc_and_weak.h b/src/libc_override_gcc_and_weak.h
+index ecb66ec..1f19e01 100644
+--- a/src/libc_override_gcc_and_weak.h
++++ b/src/libc_override_gcc_and_weak.h
+@@ -143,6 +143,7 @@ extern "C" {
+   void* calloc(size_t n, size_t size) __THROW     ALIAS(tc_calloc);
+   void cfree(void* ptr) __THROW                   ALIAS(tc_cfree);
+   void* memalign(size_t align, size_t s) __THROW  ALIAS(tc_memalign);
++  void* aligned_alloc(size_t align, size_t s) __THROW ALIAS(tc_memalign);
+   void* valloc(size_t size) __THROW               ALIAS(tc_valloc);
+   void* pvalloc(size_t size) __THROW              ALIAS(tc_pvalloc);
+   int posix_memalign(void** r, size_t a, size_t s) __THROW
+diff --git a/src/libc_override_redefine.h b/src/libc_override_redefine.h
+index 72679ef..89ad584 100644
+--- a/src/libc_override_redefine.h
++++ b/src/libc_override_redefine.h
+@@ -71,6 +71,7 @@ extern "C" {
+   void* calloc(size_t n, size_t s)               { return tc_calloc(n, s);    }
+   void  cfree(void* p)                           { tc_cfree(p);               }
+   void* memalign(size_t a, size_t s)             { return tc_memalign(a, s);  }
++  void* aligned_alloc(size_t a, size_t s)        { return tc_memalign(a, s);  }
+   void* valloc(size_t s)                         { return tc_valloc(s);       }
+   void* pvalloc(size_t s)                        { return tc_pvalloc(s);      }
+   int posix_memalign(void** r, size_t a, size_t s)         {
