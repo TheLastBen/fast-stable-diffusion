@@ -1,7 +1,6 @@
 #Based on A1111 cropping script
 import cv2
 import os
-from collections import defaultdict
 from math import log, sqrt
 import numpy as np
 from PIL import Image, ImageDraw
