@@ -1,6 +1,5 @@
 #Based on A1111 cropping script
 import cv2
-import requests
 import os
 from collections import defaultdict
 from math import log, sqrt
