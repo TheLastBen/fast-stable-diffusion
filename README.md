@@ -1,4 +1,6 @@
-# fast-stable-diffusion Notebooks, AUTOMATIC1111 + DreamBooth
+# Shoutout to <a href="https://replicate.com/" target="_blank"><img src='https://raw.githubusercontent.com/TheLastBen/fast-stable-diffusion/main/.github/replicate.png' width="170" height="40" style="vertical-align: middle; margin-bottom: 8px;"></a> for sponsoring the project
+
+# fast-stable-diffusion Notebooks, A1111 + ComfyUI + DreamBooth
 Runpod & Paperspace & Colab pro adaptations AUTOMATIC1111 Webui and Dreambooth.
  
 <center><b>&nbsp;&nbsp;&nbsp;
