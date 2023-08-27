@@ -4,17 +4,17 @@
 
 ## How to use ??
 ### Open colab and connect to GPU
-![](images/gpu.png)
+![](https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/gpu.png)
 ### Run code-blocks
-![](images/colab-page.png)
+![](https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/colab-page.png)
 ### Link your custom model's download url or use default
-![](images/model_download.png)
+![](https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/model_download.png)
 ### Link VAEs/LoRA/Embeddings
-![](images/vae.png)
+![](https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/vae.png)
 ### Run The Model and Click on public url
-![](images/publicurl.png)
+![](https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/publicurl.png)
 ### Generate Images
-![](images/webui.png)
+![](https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/webui.png)
 
 ## Image Generation
 use the [AUTOMATIC1111 web-ui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) to know more about image generation.
@@ -23,15 +23,15 @@ use the [AUTOMATIC1111 web-ui](https://github.com/AUTOMATIC1111/stable-diffusion
   <tr>
     <td style="border: 1px solid black; padding: 8px; text-align: center;">
       <h3>Input Noise</h3>
-      <img src="images/noise.png" alt="noise" style="max-width: 100%; height: auto;">
+      <img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/noise.png" alt="noise" style="max-width: 100%; height: auto;">
     </td>
     <td style="border: 1px solid black; padding: 8px; text-align: center;">
       <h3>Magic</h3>
-      <img src="images/megumin-transformation.gif" alt="transformation" style="max-width: 100%; height: auto;">
+      <img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/megumin-transformation.gif" alt="transformation" style="max-width: 100%; height: auto;">
     </td>
     <td style="border: 1px solid black; padding: 8px; text-align: center;">
       <h3>Output Image</h3>
-      <img src="images/megumin.png" alt="output" style="max-width: 100%; height: auto;">
+      <img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/megumin.png" alt="output" style="max-width: 100%; height: auto;">
     </td>
   </tr>
 </table>
