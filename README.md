@@ -3,18 +3,23 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PrajasW/fast-stable-diffusion/blob/main/fast_stable_diffusion_AUTOMATIC1111.ipynb)
 
 ## How to use ??
-### Open colab and connect to GPU
-![](https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/gpu.png)
-### Run code-blocks
-![](https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/colab-page.png)
-### Link your custom model's download url or use default
-![](https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/model_download.png)
-### Link VAEs/LoRA/Embeddings
-![](https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/vae.png)
-### Run The Model and Click on public url
-![](https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/publicurl.png)
-### Generate Images
-![](https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/webui.png)
+#### Open colab and connect to GPU
+<img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/gpu.png" width="400" height="100%" />
+
+#### Run code-blocks
+<img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/colab-page.png" width="600" height="100%" />
+
+#### Link your custom model's download url or use default
+<img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/model_download.png" width="600" height="100%" />
+
+#### Link VAEs/LoRA/Embeddings
+<img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/vae.png" width="600" height="100%" />
+
+#### Run The Model and Click on public url
+<img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/publicurl.png" width="600" height="100%" />
+
+#### Generate Images
+<img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/webui.png" width="1080" height="100%" />
 
 ## Image Generation
 use the [AUTOMATIC1111 web-ui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) to know more about image generation.
