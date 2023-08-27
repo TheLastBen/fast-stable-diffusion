@@ -43,11 +43,11 @@ use the [AUTOMATIC1111 web-ui](https://github.com/AUTOMATIC1111/stable-diffusion
 
 ## Example Generations
 <div style="display: grid; grid-template-rows: auto 1fr auto; gap: 10px;">
-  <img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/epic_summon.png" width="512" height="100%" />
+  <img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/epic_summon.png" width="1080" height="100%" />
   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-    <img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/00019-3492231768.png" width="256" height="100%" />
-    <img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/00048-3992803685.png" width="256" height="100%" />
+    <img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/00019-3492231768.png" width="500" height="100%" />
+    <img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/00048-3992803685.png" width="500" height="100%" />
   </div>
-  <img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/00020-1853847902.png" width="512" height="100%" />
+  <img src="https://github.com/PrajasW/fast-stable-diffusion/blob/main/Images/00020-1853847902.png" width="1080" height="100%" />
 </div>
 
