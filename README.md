@@ -1,4 +1,4 @@
-# This is a fork of a great repo from TheLastBen. Don't use this. It'll be buggy.  Use their version.
+# This is a fork of a great repo from TheLastBen. Don't use my fork. It'll be buggy.  Use their version.
 
 # Shoutout to <a href="https://replicate.com/" target="_blank"><img src='https://raw.githubusercontent.com/TheLastBen/fast-stable-diffusion/main/.github/replicate.png' width="170" height="40" style="vertical-align: middle; margin-bottom: 8px; background-color: black"></a> for sponsoring the project
 
