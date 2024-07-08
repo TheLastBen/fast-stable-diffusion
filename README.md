@@ -9,7 +9,7 @@ RunPod &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&
 
  
 <br><a href="https://www.runpod.io/console/gpu-cloud?template=runpod-stable-unified">
-nbsp&nbsp&nbsp&nbsp&nbsp<img src='https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dreambooth/3.JPG'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dreambooth/3.JPG'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://console.paperspace.com/github/TheLastBen/PPS?machine=Free-GPU"><img src='https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dreambooth/2.png'></a>
  
  
