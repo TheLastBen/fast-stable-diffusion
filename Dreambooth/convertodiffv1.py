@@ -42,11 +42,8 @@ def shave_segments(path, n_shave_prefix_segments=1):
   """
   Removes segments. Positive values shave the first segments, negative shave the last segments.
   """
-  if n_shave_prefix_segments >= 0:
-    return ".".join(path.split(".")[n_shave_prefix_segments:])
-  else:
-    return ".".join(path.split(".")[:n_shave_prefix_segments])
-
+  return ".".join(path.split(".")[n_shave_prefix_segments:]) if n_shave_prefix_segments > -1 else ".".join(path.split(".")[:n_shave_prefix_segments])
+  
 
 def renew_resnet_paths(old_list, n_shave_prefix_segments=0):
   """
@@ -183,11 +180,7 @@ def assign_to_checkpoint(
         new_path = new_path.replace(replacement["old"], replacement["new"])
 
     # proj_attn.weight has to be converted from conv 1D to linear
-    if "proj_attn.weight" in new_path:
-      checkpoint[new_path] = old_checkpoint[path["old"]][:, :, 0]
-    else:
-      checkpoint[new_path] = old_checkpoint[path["old"]]
-
+    checkpoint[new_path] = old_checkpoint[path["old"]][:, :, 0] if "proj_attn.weight" in new_path else old_checkpoint[path["old"]]
 
 def conv_attn_to_linear(checkpoint):
   keys = list(checkpoint.keys())
