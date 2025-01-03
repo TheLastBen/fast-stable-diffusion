@@ -1,7 +1,7 @@
 # Shoutout to <a href="https://www.paperspace.com" target="_blank"><img src='https://raw.githubusercontent.com/TheLastBen/fast-stable-diffusion/main/.github/Paperspace.png' width="170" height="40" style="vertical-align: middle; margin-bottom: 8px; background-color: black"></a> for sponsoring the project
  
-# fast-stable-diffusion Notebooks, A1111 + ComfyUI + DreamBooth
-Paperspace adaptations AUTOMATIC1111 Webui, ComfyUI and Dreambooth.
+# fast-stable-diffusion Notebooks, A1111 + Forge + ReForge + ComfyUI + DreamBooth
+Paperspace adaptations AUTOMATIC1111 Webui(Original A1111, Forge and ReForge), ComfyUI and Dreambooth.
  
 <center><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Paperspace
 
