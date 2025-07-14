@@ -14,3 +14,4 @@ https://huggingface.co/MIC-Lab/illustriousXLv1.1_controlnet/resolve/main/illustr
 https://huggingface.co/MIC-Lab/illustriousXLv1.1_controlnet/resolve/main/illustriousXLv1.1_inpainting_fp16.safetensors
 https://huggingface.co/MIC-Lab/illustriousXLv1.1_controlnet/resolve/main/illustriousXLv1.1_tile_fp16.safetensors
 https://huggingface.co/Laxhar/noob_openpose/resolve/main/openpose_pre.safetensors
+https://huggingface.co/Wenaka/NoobAI_XL_Inpainting_ControlNet_Full/resolve/main/NoobAI_Inpainting_ControlNet.safetensors
