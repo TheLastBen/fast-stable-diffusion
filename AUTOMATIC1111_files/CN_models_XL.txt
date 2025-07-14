@@ -3,3 +3,14 @@ https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_x
 https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/sai_xl_sketch_256lora.safetensors
 https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/thibaud_xl_openpose_256lora.safetensors
 https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/sai_xl_recolor_128lora.safetensors
+https://huggingface.co/MIC-Lab/illustriousXLv0.1_controlnet/resolve/main/illustriousXLv0.1_Canny_fp16.safetensors
+https://huggingface.co/MIC-Lab/illustriousXLv0.1_controlnet/resolve/main/illustriousXLv0.1_Lineart_fp16.safetensors
+https://huggingface.co/MIC-Lab/illustriousXLv0.1_controlnet/resolve/main/illustriousXLv0.1_Softedge_fp16.safetensors
+https://huggingface.co/MIC-Lab/illustriousXLv0.1_controlnet/resolve/main/illustriousXLv0.1_Tile_fp16.safetensors
+https://huggingface.co/MIC-Lab/illustriousXLv0.1_controlnet/resolve/main/illustriousXLv0.1_depth_midas_fp16.safetensors
+https://huggingface.co/MIC-Lab/illustriousXLv0.1_controlnet/resolve/main/illustriousXLv0.1_inpainting_fp16.safetensors
+https://huggingface.co/MIC-Lab/illustriousXLv1.1_controlnet/resolve/main/illustriousXLv1.1_canny_fp16.safetensors
+https://huggingface.co/MIC-Lab/illustriousXLv1.1_controlnet/resolve/main/illustriousXLv1.1_depth_midas_fp16.safetensors
+https://huggingface.co/MIC-Lab/illustriousXLv1.1_controlnet/resolve/main/illustriousXLv1.1_inpainting_fp16.safetensors
+https://huggingface.co/MIC-Lab/illustriousXLv1.1_controlnet/resolve/main/illustriousXLv1.1_tile_fp16.safetensors
+https://huggingface.co/Laxhar/noob_openpose/resolve/main/openpose_pre.safetensors
