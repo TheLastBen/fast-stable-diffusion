@@ -1,6 +1,6 @@
 # Contact on [X](https://x.com/__TheBen) for highly advanced and optimized flux trainer or SDXL colab trainer (paid)
  
-# fast-stable-diffusion Notebooks, A1111 + Forge + Forge Classic + ReForge + ComfyUI + DreamBooth
+# fast-stable-diffusion Notebooks, A1111 + ReForge + ComfyUI + DreamBooth
 Soon will stop maintaining paperspace notebooks.
  
 <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Colab-AUTOMATIC1111&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Colab-Dreambooth<br></a><a href="https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast_stable_diffusion_AUTOMATIC1111.ipynb"><img src='https://github.com/TheLastBen/fast-stable-diffusion/raw/main/Dreambooth/1.jpg'></a>
