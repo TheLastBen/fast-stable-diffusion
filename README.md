@@ -1,4 +1,4 @@
-# Contact on [X](https://x.com/__TheBen) for highly advanced and optimized flux trainer or SDXL colab trainer (paid)
+# Contact on [X](https://x.com/__TheBen) for highly advanced and optimized flux(dev, krea, kontext) trainer or SDXL colab trainer (paid)
  
 # fast-stable-diffusion Notebooks, ComfyUI + A1111 + DreamBooth
  
